@@ -19,7 +19,7 @@ set(LWLOG_SOURCE_FILES
 
 message("Creating lwlog library")
 add_library(lwlog_lib STATIC ${LWLOG_SOURCE_FILES})
-target_include_directories(lwlog_lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/lwlog/src/)
+target_include_directories(lwlog_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/lwlog/src/)
 
 message("Creating lwlog sandbox")
 add_executable(lwlog_sandbox ${CMAKE_CURRENT_SOURCE_DIR}/Sandbox/Sandbox.cpp)
