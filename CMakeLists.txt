@@ -11,19 +11,19 @@ message("Compiler Version: ${CMAKE_CXX_COMPILER_VERSION}")
 
 message("Adding source files")
 set(LWLOG_SOURCE_FILES
-    ${CMAKE_SOURCE_DIR}/lwlog/src/registry.cpp
-    ${CMAKE_SOURCE_DIR}/lwlog/src/details/pattern/alignment_formatter.cpp
-    ${CMAKE_SOURCE_DIR}/lwlog/src/details/pattern/attribute.cpp
-    ${CMAKE_SOURCE_DIR}/lwlog/src/details/pattern/pattern.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lwlog/src/registry.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lwlog/src/details/pattern/alignment_formatter.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lwlog/src/details/pattern/attribute.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/lwlog/src/details/pattern/pattern.cpp
 )
 
 message("Creating lwlog library")
 add_library(lwlog_lib STATIC ${LWLOG_SOURCE_FILES})
-target_include_directories(lwlog_lib PRIVATE ${CMAKE_SOURCE_DIR}/lwlog/src/)
+target_include_directories(lwlog_lib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/lwlog/src/)
 
 message("Creating lwlog sandbox")
-add_executable(lwlog_sandbox ${CMAKE_SOURCE_DIR}/Sandbox/Sandbox.cpp)
-target_include_directories(lwlog_sandbox PRIVATE ${CMAKE_SOURCE_DIR}/lwlog/src/)
+add_executable(lwlog_sandbox ${CMAKE_CURRENT_SOURCE_DIR}/Sandbox/Sandbox.cpp)
+target_include_directories(lwlog_sandbox PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/lwlog/src/)
 
 message("Linking libraries")
 target_link_libraries(lwlog_lib PRIVATE Threads::Threads)
